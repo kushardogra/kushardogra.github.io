@@ -41,7 +41,6 @@
             overflow-x: hidden;
         }
 
-        /* Background Grid Animation */
         .bg-grid {
             position: fixed;
             top: 0;
@@ -56,7 +55,6 @@
             z-index: -1;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -115,7 +113,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -123,6 +120,8 @@
             justify-content: center;
             padding: 6rem 2rem 4rem;
             position: relative;
+            opacity: 1 !important;
+            transform: none !important;
         }
 
         .hero-content {
@@ -202,7 +201,6 @@
             color: var(--accent-cyan);
         }
 
-        /* Sections */
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -230,7 +228,6 @@
             color: var(--text-secondary);
         }
 
-        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -298,7 +295,6 @@
             color: var(--text-muted);
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -356,7 +352,6 @@
             color: var(--accent-cyan);
         }
 
-        /* Projects Section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -413,6 +408,7 @@
             margin-bottom: 1rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
+            flex-wrap: wrap;
         }
 
         .project-stats span {
@@ -434,7 +430,6 @@
             color: var(--text-muted);
         }
 
-        /* Experience Section */
         .timeline {
             position: relative;
             padding-left: 2rem;
@@ -510,7 +505,6 @@
             color: var(--accent-cyan);
         }
 
-        /* Education Section */
         .education-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -552,7 +546,6 @@
             font-size: 0.9rem;
         }
 
-        /* Certifications */
         .cert-grid {
             display: flex;
             flex-wrap: wrap;
@@ -576,7 +569,60 @@
             color: var(--accent-green);
         }
 
-        /* Contact Section */
+        .thm-badge-wrapper {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .thm-badge-card {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.25rem 1.25rem 1rem;
+            text-align: center;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .thm-badge-card h3 {
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
+        }
+
+        .thm-badge-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .thm-badge-card iframe {
+            display: block;
+            width: 370px;
+            height: 110px;
+            max-width: 100%;
+            border: none;
+            overflow: hidden;
+            border-radius: 10px;
+            background: transparent;
+        }
+
+        @media (max-width: 480px) {
+            .thm-badge-card {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .thm-badge-card iframe {
+                width: 100%;
+                height: 110px;
+            }
+        }
+
         .contact-content {
             text-align: center;
             max-width: 600px;
@@ -614,7 +660,6 @@
             transform: translateY(-3px);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
@@ -627,7 +672,6 @@
             color: var(--accent-cyan);
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -639,7 +683,6 @@
             }
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -671,28 +714,17 @@
                 flex-direction: column;
             }
 
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
             section {
                 padding: 3rem 1rem;
             }
         }
 
-        /* Terminal cursor animation */
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: var(--accent-cyan);
-            animation: blink 1s infinite;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        /* Contact Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -787,18 +819,6 @@
             box-shadow: 0 10px 30px rgba(0, 119, 181, 0.3);
         }
 
-        .modal-btn-github {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-        }
-
-        .modal-btn-github:hover {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
-            transform: translateY(-2px);
-        }
-
         .modal-close {
             position: absolute;
             top: 1rem;
@@ -823,7 +843,6 @@
 <body>
     <div class="bg-grid"></div>
 
-    <!-- Contact Modal -->
     <div class="modal-overlay" id="contactModal">
         <div class="modal-wrapper">
             <div class="modal">
@@ -844,7 +863,6 @@
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav>
         <div class="logo">&lt;kushar.dogra /&gt;</div>
         <ul class="nav-links">
@@ -857,12 +875,11 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">🔐 Open to Security Analyst | SOC Analyst | Pen Tester Roles</div>
+            <div class="hero-badge">🔐 Open to Security Analyst | SOC Analyst | Cybersecurity Roles</div>
             <h1>Hi, I'm <span>Kushar Dogra</span></h1>
-            <p class="hero-subtitle">Cybersecurity Graduate Student | Penetration Testing | Vulnerability Research | Threat Detection</p>
+            <p class="hero-subtitle">MS Cybersecurity Student | Security Monitoring | Endpoint Security | Threat Detection</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#" class="btn btn-secondary" id="contactBtn">Get in Touch</a>
@@ -871,40 +888,38 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="section-header">
             <h2>About <span>Me</span></h2>
-            <p>Cybersecurity enthusiast with hands-on offensive and defensive security experience</p>
+            <p>Cybersecurity graduate student building across defensive, offensive, and compliance-focused security work</p>
         </div>
         <div class="about-content">
             <div class="about-image">
                 <img src="./profile.png" alt="Kushar Dogra">
             </div>
             <div class="about-text">
-                <h3>Security-Focused Developer turned Cybersecurity Professional</h3>
-                <p>I'm a Master's student at Northeastern University pursuing my MS in Cybersecurity, with hands-on experience in penetration testing, vulnerability research, and security monitoring.</p>
-                <p>At Quindl Technologies, I developed full-stack web applications with a security-first approach — implementing authentication systems, role-based access controls, and secure coding practices. This experience gave me a strong foundation in understanding how applications are built and where they break.</p>
-                <p>Through my graduate coursework, I've gone deeper into offensive and defensive security: exploiting buffer overflows, conducting penetration tests with Metasploit, deploying Snort IDS with custom detection rules, and configuring security infrastructure like Kerberos SSO and Kubernetes RBAC.</p>
+                <h3>Security-focused builder with hands-on experience across multiple domains</h3>
+                <p>I'm a Master's student at Northeastern University pursuing an MS in Cybersecurity, with hands-on experience in security monitoring, incident analysis, penetration testing, and endpoint compliance validation.</p>
+                <p>At Quindl Technologies, I built production web applications with a security-first mindset by implementing secure authentication flows, role-based access controls, and secure coding practices. That developer background helps me understand both how systems are built and how they break.</p>
+                <p>Through graduate coursework, labs, and independent research, I've worked on IDS deployment, network traffic analysis, exploit development, forensics, compliance validation, and security tooling. My current capstone focuses on endpoint security compliance validation and remediation for Windows systems.</p>
                 <div class="about-stats">
-                    <div class="stat-item">
-                        <h4>6+</h4>
-                        <p>Security Courses</p>
-                    </div>
                     <div class="stat-item">
                         <h4>20+</h4>
                         <p>Security Labs</p>
                     </div>
                     <div class="stat-item">
+                        <h4>7+</h4>
+                        <p>Core Projects</p>
+                    </div>
+                    <div class="stat-item">
                         <h4>4</h4>
-                        <p>Client Projects</p>
+                        <p>Production Apps</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <div class="section-header">
             <h2>Technical <span>Skills</span></h2>
@@ -922,7 +937,6 @@
                     <span class="skill-tag">Nmap</span>
                     <span class="skill-tag">Hydra</span>
                     <span class="skill-tag">Aircrack-ng</span>
-                    <span class="skill-tag">SQLMap</span>
                     <span class="skill-tag">GDB</span>
                     <span class="skill-tag">pwntools</span>
                 </div>
@@ -934,13 +948,13 @@
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">Snort</span>
+                    <span class="skill-tag">Splunk</span>
                     <span class="skill-tag">Wireshark</span>
                     <span class="skill-tag">OSSEC</span>
                     <span class="skill-tag">Auditd</span>
                     <span class="skill-tag">OpenSCAP</span>
                     <span class="skill-tag">ntopng</span>
                     <span class="skill-tag">IPFire</span>
-                    <span class="skill-tag">iptables</span>
                 </div>
             </div>
             <div class="skill-card">
@@ -951,10 +965,10 @@
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">PowerShell</span>
                     <span class="skill-tag">SQL</span>
                     <span class="skill-tag">Django</span>
                     <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">HTML/CSS</span>
                 </div>
             </div>
             <div class="skill-card">
@@ -964,11 +978,11 @@
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">GCP</span>
                     <span class="skill-tag">Docker</span>
                     <span class="skill-tag">Kubernetes</span>
                     <span class="skill-tag">Git</span>
                     <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Kerberos</span>
                 </div>
             </div>
             <div class="skill-card">
@@ -978,6 +992,7 @@
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">NIST 800-53</span>
+                    <span class="skill-tag">NIST 800-61</span>
                     <span class="skill-tag">ISO 27001</span>
                     <span class="skill-tag">CIS Benchmarks</span>
                     <span class="skill-tag">OWASP Top 10</span>
@@ -987,33 +1002,54 @@
             <div class="skill-card">
                 <div class="skill-card-header">
                     <div class="skill-icon">🔐</div>
-                    <h3>Cryptography</h3>
+                    <h3>Forensics & Analysis</h3>
                 </div>
                 <div class="skill-tags">
-                    <span class="skill-tag">GPG</span>
-                    <span class="skill-tag">OpenSSL</span>
-                    <span class="skill-tag">Kerberos</span>
-                    <span class="skill-tag">TLS/SSL</span>
-                    <span class="skill-tag">ECC/ECDH</span>
+                    <span class="skill-tag">Autopsy</span>
+                    <span class="skill-tag">Volatility 3</span>
+                    <span class="skill-tag">FTK Imager</span>
+                    <span class="skill-tag">Magnet AXIOM</span>
+                    <span class="skill-tag">Any.run</span>
+                    <span class="skill-tag">VirusTotal</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <div class="section-header">
             <h2>Security <span>Projects</span></h2>
-            <p>Hands-on cybersecurity work from coursework and labs</p>
+            <p>Hands-on cybersecurity work across offensive, defensive, and compliance-focused security</p>
         </div>
         <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Endpoint Security Compliance Validation & Remediation Framework</h3>
+                    <span class="project-type">Capstone</span>
+                </div>
+                <div class="project-body">
+                    <p>Designed a framework to validate endpoint security configurations on Windows systems using automated policy checks. Mapped 43 endpoint security controls to NIST SP 800-53 and evaluated configuration drift, remediation feasibility, and platform limitations across Windows environments.</p>
+                    <div class="project-stats">
+                        <div><span>43</span> Mapped Controls</div>
+                        <div><span>NIST</span> 800-53 Aligned</div>
+                    </div>
+                    <div class="project-tech">
+                        <span>Windows Security</span>
+                        <span>NIST 800-53</span>
+                        <span>Compliance Validation</span>
+                        <span>PowerShell</span>
+                        <span>Policy Checks</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3>Binary Exploitation & Vulnerability Research</h3>
                     <span class="project-type">Offensive</span>
                 </div>
                 <div class="project-body">
-                    <p>Exploited stack-based buffer overflows in SUID binaries using custom shellcode, ret2libc techniques, and stack canary bypasses. Performed SQL injection and command injection attacks on web applications.</p>
+                    <p>Analyzed and exploited stack-based buffer overflows in SUID binaries using shellcode, ret2libc techniques, and stack canary bypasses. Built a deeper understanding of memory corruption issues and attacker tradecraft through hands-on lab challenges.</p>
                     <div class="project-stats">
                         <div><span>6+</span> Buffer Overflow Challenges</div>
                         <div><span>96.5%</span> CTF Score</div>
@@ -1022,21 +1058,22 @@
                         <span>GDB</span>
                         <span>pwntools</span>
                         <span>Python</span>
-                        <span>SQLMap</span>
                         <span>Shellcode</span>
+                        <span>ret2libc</span>
                     </div>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3>Network Security & Penetration Testing</h3>
                     <span class="project-type">Offensive</span>
                 </div>
                 <div class="project-body">
-                    <p>Executed full 5-phase penetration tests: reconnaissance, scanning, exploitation with Metasploit, privilege escalation, and post-exploitation. Configured firewalls with NAT and traffic filtering.</p>
+                    <p>Executed full penetration testing workflows across lab environments, from reconnaissance and scanning to exploitation and post-exploitation. Also configured firewalls with NAT, traffic filtering, and logging to validate defensive controls.</p>
                     <div class="project-stats">
                         <div><span>5</span> Pen Test Phases</div>
-                        <div><span>3+</span> Firewall Configs</div>
+                        <div><span>3+</span> Firewall Setups</div>
                     </div>
                     <div class="project-tech">
                         <span>Metasploit</span>
@@ -1047,13 +1084,14 @@
                     </div>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3>Intrusion Detection & Threat Monitoring</h3>
                     <span class="project-type">Defensive</span>
                 </div>
                 <div class="project-body">
-                    <p>Deployed Snort IDS/IPS with custom detection rules for SQLi, XSS, and CVE-based attacks. Configured NetFlow monitoring on AWS EC2 and analyzed network captures to identify attack patterns.</p>
+                    <p>Deployed Snort IDS/IPS with custom detection rules for common web attacks and CVE-style patterns. Built NetFlow monitoring on AWS EC2 and analyzed packet captures to investigate suspicious traffic and attack behavior.</p>
                     <div class="project-stats">
                         <div><span>10+</span> Custom Snort Rules</div>
                         <div><span>5+</span> PCAP Analyses</div>
@@ -1067,16 +1105,17 @@
                     </div>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3>Security Infrastructure & Compliance</h3>
                     <span class="project-type">Infrastructure</span>
                 </div>
                 <div class="project-body">
-                    <p>Built Docker-based Kerberos SSO for SSH and Apache. Performed OpenSCAP and OSSEC vulnerability scans. Developed incident response playbooks aligned with NIST 800-61 framework.</p>
+                    <p>Built Docker-based Kerberos SSO for SSH and Apache, performed OpenSCAP and OSSEC scans, and developed incident response playbooks aligned with NIST 800-61 for ransomware and breach scenarios.</p>
                     <div class="project-stats">
                         <div><span>2</span> IR Playbooks</div>
-                        <div><span>3</span> Compliance Frameworks</div>
+                        <div><span>3</span> Security Platforms</div>
                     </div>
                     <div class="project-tech">
                         <span>Kerberos</span>
@@ -1087,13 +1126,14 @@
                     </div>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3>Web Application Security</h3>
                     <span class="project-type">Offensive</span>
                 </div>
                 <div class="project-body">
-                    <p>Exploited XSS vulnerabilities (reflected & stored), performed OSINT reconnaissance using Spiderfoot, Shodan, and Censys. Conducted WPA2 handshake capture and decryption.</p>
+                    <p>Tested common web vulnerabilities including XSS and authentication issues while using OSINT tooling to map attack surfaces. Also explored wireless security through WPA2 handshake capture and decryption labs.</p>
                     <div class="project-stats">
                         <div><span>2</span> XSS Types</div>
                         <div><span>3</span> OSINT Tools</div>
@@ -1107,13 +1147,14 @@
                     </div>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3>Cryptography & Secure Communications</h3>
                     <span class="project-type">Infrastructure</span>
                 </div>
                 <div class="project-body">
-                    <p>Implemented secure group file sharing using ECC/ECDH and OpenSSL. Configured GPG encryption, digital signatures, and analyzed ECB mode vulnerabilities through cipher forging attacks.</p>
+                    <p>Implemented secure group file sharing using ECC/ECDH and OpenSSL, worked with GPG encryption and digital signatures, and explored encryption weaknesses through hands-on crypto labs.</p>
                     <div class="project-stats">
                         <div><span>3+</span> Crypto Labs</div>
                         <div><span>2</span> Services Secured</div>
@@ -1127,13 +1168,14 @@
                     </div>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3>Password Strength Checker</h3>
                     <span class="project-type">Tool</span>
                 </div>
                 <div class="project-body">
-                    <p>Full-stack security tool that evaluates password strength using Shannon entropy, dictionary checks against 10K common passwords, and live HaveIBeenPwned breach lookups with k-anonymity.</p>
+                    <p>Built a password analysis tool that evaluates entropy, checks against common password dictionaries, and performs HaveIBeenPwned breach lookups with k-anonymity to give actionable feedback.</p>
                     <div class="project-stats">
                         <div><span>Full-Stack</span> Flask + JS</div>
                         <div><span>10K</span> Password Dictionary</div>
@@ -1153,43 +1195,41 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience">
         <div class="section-header">
             <h2>Work <span>Experience</span></h2>
-            <p>Professional experience in software development and security</p>
+            <p>Professional experience in software development and security-focused engineering</p>
         </div>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-header">
-                    <h3>Web Developer</h3>
+                    <h3>Full Stack Developer</h3>
                     <span class="timeline-date">Aug 2023 – Aug 2024</span>
                 </div>
                 <p class="timeline-company">Quindl Technologies, Coimbatore, India</p>
                 <div class="timeline-body">
                     <ul>
-                        <li>Delivered 4 full-stack web applications (e-commerce, booking systems, dashboards) serving 300+ users, meeting 4-month delivery deadlines</li>
-                        <li>Designed and implemented database schemas with role-based access controls, enforcing admin/user privilege separation</li>
-                        <li>Conducted code reviews within a team of 5–10 developers, identifying security misconfigurations and ensuring secure coding practices</li>
-                        <li>Integrated security-by-design using Django: CSRF protection, XSS prevention, input sanitization, secure session handling, and HTTPS enforcement</li>
+                        <li>Built and maintained 4 production web applications using Django, Python, JavaScript, and MySQL/SQLite in a fast-moving startup environment</li>
+                        <li>Implemented security-first application controls including CSRF protection, secure session handling, HTTPS enforcement, and role-based access control</li>
+                        <li>Designed and maintained database schemas with access separation between admin and end-user workflows</li>
+                        <li>Participated in code reviews and engineering workflows to improve secure coding practices and application reliability across the team</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education">
         <div class="section-header">
             <h2><span>Education</span></h2>
-            <p>Academic background in cybersecurity and information technology</p>
+            <p>Academic background, training, and ongoing learning</p>
         </div>
         <div class="education-grid">
             <div class="education-card">
                 <h3>Master of Science in Cybersecurity</h3>
                 <h4>Northeastern University</h4>
                 <p>Khoury College of Computer Sciences</p>
-                <p>Boston, MA | Sept 2024 – Dec 2026 (Expected)</p>
+                <p>Boston, MA | Sep 2024 – May 2026 (Expected)</p>
             </div>
             <div class="education-card">
                 <h3>Bachelor of Technology in Information Technology</h3>
@@ -1203,17 +1243,31 @@
                 <span class="icon">🎯</span>
                 <span>CompTIA Security+ (In Progress)</span>
             </div>
+            <div class="cert-badge">
+                <span class="icon">🧪</span>
+                <span>TryHackMe DFIR Path (In Progress)</span>
+            </div>
+            <div class="cert-badge">
+                <span class="icon">🛡️</span>
+                <span>TryHackMe SOC Level 1 (In Progress)</span>
+            </div>
+        </div>
+        <div class="thm-badge-wrapper">
+            <div class="thm-badge-card">
+                <h3>TryHackMe <span style="background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Badge</span></h3>
+                <p>Ongoing hands-on training in SOC and DFIR labs</p>
+                <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=659226" title="TryHackMe Badge"></iframe>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="section-header">
             <h2>Get in <span>Touch</span></h2>
             <p>Let's connect and discuss cybersecurity opportunities</p>
         </div>
         <div class="contact-content">
-            <p>I'm currently looking for Security Analyst, SOC Analyst, and Junior Penetration Tester roles. Feel free to reach out if you're passionate about cybersecurity or looking for a motivated analyst to join your team!</p>
+            <p>I'm currently looking for security analyst and entry-level cybersecurity opportunities. Feel free to reach out if you'd like to connect, collaborate, or discuss security work.</p>
             <div class="contact-links">
                 <a href="mailto:kushardogra@outlook.com" class="contact-link">
                     <span>📧</span>
@@ -1223,17 +1277,19 @@
                     <span>💼</span>
                     <span>LinkedIn</span>
                 </a>
+                <a href="https://github.com/kushardogra" target="_blank" class="contact-link">
+                    <span>📂</span>
+                    <span>GitHub</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>Designed & Built by <span>Kushar Dogra</span> | © 2025</p>
+        <p>Designed & Built by <span>Kushar Dogra</span> | © 2026</p>
     </footer>
 
     <script>
-        // Contact Modal
         const contactBtn = document.getElementById('contactBtn');
         const navContactBtn = document.querySelector('.nav-contact-btn');
         const contactModal = document.getElementById('contactModal');
@@ -1266,7 +1322,6 @@
             }
         });
 
-        // Smooth reveal on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1277,13 +1332,14 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+            if (!section.classList.contains('hero')) {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            }
         });
 
-        // Active nav link on scroll
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-links a');
 
