@@ -482,6 +482,68 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.4);
         }
 
+        /* Featured card — spans full width */
+        .project-card.featured {
+            grid-column: 1 / -1;
+            flex-direction: row;
+        }
+
+        .project-card.featured .project-top {
+            width: 38%;
+            flex-shrink: 0;
+            border-bottom: none;
+            border-right: 1px solid var(--border-color);
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 2rem;
+        }
+
+        .project-card.featured .project-body {
+            padding: 2rem;
+        }
+
+        .featured-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .featured-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .featured-link-primary {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+        }
+
+        .featured-link-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,212,255,0.25);
+        }
+
+        .featured-link-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .featured-link-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
         .project-top {
             padding: 1.5rem 1.5rem 1rem;
             border-bottom: 1px solid var(--border-color);
@@ -530,6 +592,13 @@
         .badge-tool {
             background: rgba(255,255,255,0.08);
             color: var(--text-secondary);
+        }
+
+        /* NEW: open source badge */
+        .badge-opensource {
+            background: rgba(0,212,255,0.12);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0,212,255,0.3);
         }
 
         .project-body {
@@ -699,39 +768,25 @@
 
         /* CERTIFICATIONS */
 
-                .securityplus-card {
+        .securityplus-card {
             display: flex;
             align-items: center;
             gap: 1.5rem;
-        
             max-width: 620px;
             padding: 1.5rem 1.75rem;
             margin-bottom: 1.5rem;
-        
-            background: linear-gradient(
-                135deg,
-                rgba(0, 255, 136, 0.08),
-                rgba(0, 212, 255, 0.035)
-            );
-        
-            border: 1px solid rgba(0, 255, 136, 0.28);
+            background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,212,255,0.035));
+            border: 1px solid rgba(0,255,136,0.28);
             border-radius: 12px;
-        
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
-        
+
         .securityplus-card:hover {
             transform: translateY(-3px);
-            border-color: rgba(0, 255, 136, 0.5);
-        
-            box-shadow:
-                0 12px 35px rgba(0, 0, 0, 0.25),
-                0 0 25px rgba(0, 255, 136, 0.07);
+            border-color: rgba(0,255,136,0.5);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25), 0 0 25px rgba(0,255,136,0.07);
         }
-        
+
         .securityplus-badge {
             display: block;
             width: 110px;
@@ -739,13 +794,13 @@
             object-fit: contain;
             flex: 0 0 110px;
         }
-        
+
         .securityplus-info {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        
+
         .securityplus-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
@@ -754,26 +809,26 @@
             color: var(--accent-green);
             margin-bottom: 0.3rem;
         }
-        
+
         .securityplus-info h3 {
             font-size: 1.3rem;
             font-weight: 700;
             margin: 0 0 0.2rem;
         }
-        
+
         .securityplus-info p {
             color: var(--text-secondary);
             font-size: 0.85rem;
             margin: 0;
         }
-        
+
         .cert-row {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
             margin-bottom: 2rem;
         }
-        
+
         .cert-pill {
             display: flex;
             align-items: center;
@@ -785,29 +840,22 @@
             font-size: 0.875rem;
             transition: all 0.2s ease;
         }
-        
+
         .cert-pill:hover {
             transform: translateY(-2px);
             border-color: var(--border-active);
         }
-        
+
         .cert-pill .dot {
             width: 7px;
             height: 7px;
             border-radius: 50%;
             flex-shrink: 0;
         }
-        .dot-blue {
-            background: var(--accent-cyan);
-        }
 
-        .dot-green {
-            background: var(--accent-green);
-        }
-
-        .dot-orange {
-            background: var(--accent-orange);
-        }
+        .dot-blue   { background: var(--accent-cyan); }
+        .dot-green  { background: var(--accent-green); }
+        .dot-orange { background: var(--accent-orange); }
 
         .thm-wrapper {
             display: flex;
@@ -1008,81 +1056,44 @@
         /* ANIMATIONS */
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         /* RESPONSIVE */
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 7rem 1.5rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
-                letter-spacing: -1px;
-            }
-
-            .section {
-                padding: 4rem 1.5rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-photo-wrap {
-                max-width: 200px;
-                margin: 0 auto;
-            }
-
-            .about-stats {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .exp-header {
+        @media (max-width: 900px) {
+            .project-card.featured {
                 flex-direction: column;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .project-card.featured .project-top {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: row;
+                align-items: flex-start;
             }
         }
 
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .hero { padding: 7rem 1.5rem 4rem; }
+            .hero h1 { font-size: 2.4rem; letter-spacing: -1px; }
+            .section { padding: 4rem 1.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-photo-wrap { max-width: 200px; margin: 0 auto; }
+            .about-stats { grid-template-columns: repeat(3, 1fr); }
+            .exp-header { flex-direction: column; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 600px) {
-            .securityplus-card {
-                gap: 1rem;
-                padding: 1.2rem;
-            }
-
-            .securityplus-badge {
-                width: 72px;
-                height: 72px;
-            }
-
-            .securityplus-info h3 {
-                font-size: 1.05rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
+            .securityplus-card { gap: 1rem; padding: 1.2rem; }
+            .securityplus-badge { width: 72px; height: 72px; }
+            .securityplus-info h3 { font-size: 1.05rem; }
+            .about-stats { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1095,172 +1106,73 @@
 <!-- CONTACT MODAL -->
 
 <div class="modal-overlay" id="contactModal">
-
     <div class="modal">
-
-        <button
-            class="modal-close"
-            id="modalClose"
-            aria-label="Close contact modal"
-        >
-            &times;
-        </button>
-
-        <h3>
-            Get in <span>Touch</span>
-        </h3>
-
-        <p>
-            Choose how you'd like to connect
-        </p>
-
+        <button class="modal-close" id="modalClose" aria-label="Close contact modal">&times;</button>
+        <h3>Get in <span>Touch</span></h3>
+        <p>Choose how you'd like to connect</p>
         <div class="modal-btns">
-
-            <a
-                href="mailto:kushardogra@outlook.com"
-                class="modal-btn modal-btn-email"
-            >
-                📧 kushardogra@outlook.com
-            </a>
-
-            <a
-                href="https://linkedin.com/in/kushar-dogra"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="modal-btn modal-btn-linkedin"
-            >
-                💼 LinkedIn — kushar-dogra
-            </a>
-
+            <a href="mailto:kushardogra@outlook.com" class="modal-btn modal-btn-email">📧 kushardogra@outlook.com</a>
+            <a href="https://linkedin.com/in/kushar-dogra" target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn-linkedin">💼 LinkedIn — kushar-dogra</a>
         </div>
-
     </div>
-
 </div>
 
 
 <!-- NAVIGATION -->
 
 <nav>
-
-    <div class="logo">
-        &lt;kushar.dogra /&gt;
-    </div>
-
+    <div class="logo">&lt;kushar.dogra /&gt;</div>
     <ul class="nav-links">
-
         <li><a href="#about">About</a></li>
-
         <li><a href="#skills">Skills</a></li>
-
         <li><a href="#projects">Projects</a></li>
-
         <li><a href="#experience">Experience</a></li>
-
         <li><a href="#education">Education</a></li>
-
-        <li>
-            <a href="#" class="nav-contact-btn">
-                Contact
-            </a>
-        </li>
-
+        <li><a href="#" class="nav-contact-btn">Contact</a></li>
     </ul>
-
 </nav>
 
 
 <!-- HERO -->
 
 <section class="hero">
-
     <div class="hero-content">
-
-        <div class="hero-eyebrow">
-            OPEN TO WORK — CYBERSECURITY | SECURITY+ CERTIFIED
-        </div>
-
-        <h1>
-            Hi, I'm
-            <br>
-            <span class="name-highlight">
-                Kushar Dogra
-            </span>
-        </h1>
-
+        <div class="hero-eyebrow">OPEN TO WORK — CYBERSECURITY | SECURITY+ CERTIFIED</div>
+        <h1>Hi, I'm<br><span class="name-highlight">Kushar Dogra</span></h1>
         <p class="hero-desc">
             M.S. Cybersecurity graduate from Northeastern University and
             CompTIA Security+ certified. My work spans security operations,
             application security, threat detection, vulnerability management,
             and GRC, backed by a software development background.
         </p>
-
         <div class="hero-tags">
-
             <span class="hero-tag">SOC Analyst</span>
             <span class="hero-tag">GRC Analyst</span>
             <span class="hero-tag">Vulnerability Management</span>
             <span class="hero-tag">Application Security</span>
             <span class="hero-tag">Detection Engineering</span>
             <span class="hero-tag">DevSecOps</span>
-
         </div>
-
         <div class="hero-buttons">
-
-            <a href="#projects" class="btn btn-primary">
-                View Projects
-            </a>
-
-            <a href="#" class="btn btn-secondary" id="contactBtn">
-                Get in Touch
-            </a>
-
-            <a
-                href="./Kushar_Dogra_Resume.pdf"
-                class="btn btn-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Download Resume
-            </a>
-
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#" class="btn btn-secondary" id="contactBtn">Get in Touch</a>
+            <a href="./Kushar_Dogra_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Download Resume</a>
         </div>
-
     </div>
-
 </section>
 
 
 <!-- ABOUT -->
 
 <section class="section" id="about">
-
-    <div class="section-label">
-        // 01. about
-    </div>
-
-    <h2 class="section-title">
-        About <span>Me</span>
-    </h2>
-
-    <p class="section-sub">
-        Cybersecurity professional with a developer's instinct for how systems break
-    </p>
-
+    <div class="section-label">// 01. about</div>
+    <h2 class="section-title">About <span>Me</span></h2>
+    <p class="section-sub">Cybersecurity professional with a developer's instinct for how systems break</p>
     <div class="about-grid">
-
         <div class="about-photo-wrap">
-
-            <img
-                src="./profile.png"
-                alt="Kushar Dogra"
-            >
-
+            <img src="./profile.png" alt="Kushar Dogra">
         </div>
-
         <div class="about-text">
-
             <p>
                 I'm an M.S. Cybersecurity graduate from Northeastern University
                 and CompTIA Security+ certified. My background spans penetration
@@ -1269,7 +1181,6 @@
                 graduate projects, independent labs, and endpoint security
                 automation work.
             </p>
-
             <p>
                 Before Northeastern, I worked as an Application Security-Focused
                 Full Stack Developer at Quindl Technologies in India, where I
@@ -1278,64 +1189,43 @@
                 developer background helps me understand both how systems are
                 built and how security failures emerge.
             </p>
-
             <p>
                 I'm currently pursuing cybersecurity opportunities across SOC,
                 GRC, vulnerability management, application security, and
                 detection engineering.
             </p>
-
             <div class="about-stats">
-
                 <div class="stat">
-                    <h4>9+</h4>
+                    <h4>10+</h4>
                     <p>Security Projects</p>
                 </div>
-
                 <div class="stat">
                     <h4>4</h4>
                     <p>Production Apps</p>
                 </div>
-
                 <div class="stat">
                     <h4>21</h4>
                     <p>Controls Automated</p>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
 <!-- SKILLS -->
 
 <section class="section" id="skills">
-
-    <div class="section-label">
-        // 02. skills
-    </div>
-
-    <h2 class="section-title">
-        Technical <span>Skills</span>
-    </h2>
-
-    <p class="section-sub">
-        Tools, languages, technologies, and security frameworks I work with
-    </p>
-
+    <div class="section-label">// 02. skills</div>
+    <h2 class="section-title">Technical <span>Skills</span></h2>
+    <p class="section-sub">Tools, languages, technologies, and security frameworks I work with</p>
     <div class="skills-grid">
 
         <div class="skill-card">
-
             <div class="skill-card-header">
                 <div class="skill-icon">🔓</div>
                 <h3>Offensive Security</h3>
             </div>
-
             <div class="skill-tags">
                 <span class="skill-tag orange">Metasploit</span>
                 <span class="skill-tag orange">Burp Suite</span>
@@ -1347,17 +1237,13 @@
                 <span class="skill-tag orange">pwntools</span>
                 <span class="skill-tag orange">Ghidra</span>
             </div>
-
         </div>
 
-
         <div class="skill-card">
-
             <div class="skill-card-header">
                 <div class="skill-icon">🛡️</div>
                 <h3>Defensive Security</h3>
             </div>
-
             <div class="skill-tags">
                 <span class="skill-tag green">Snort IDS/IPS</span>
                 <span class="skill-tag green">Splunk</span>
@@ -1368,17 +1254,13 @@
                 <span class="skill-tag green">IPFire</span>
                 <span class="skill-tag green">tcpdump</span>
             </div>
-
         </div>
 
-
         <div class="skill-card">
-
             <div class="skill-card-header">
                 <div class="skill-icon">💻</div>
                 <h3>Languages & Scripting</h3>
             </div>
-
             <div class="skill-tags">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">PowerShell</span>
@@ -1389,17 +1271,13 @@
                 <span class="skill-tag">Flask</span>
                 <span class="skill-tag">Go</span>
             </div>
-
         </div>
 
-
         <div class="skill-card">
-
             <div class="skill-card-header">
                 <div class="skill-icon">☁️</div>
                 <h3>Cloud & DevOps</h3>
             </div>
-
             <div class="skill-tags">
                 <span class="skill-tag">AWS EC2</span>
                 <span class="skill-tag">Docker</span>
@@ -1409,17 +1287,13 @@
                 <span class="skill-tag">Windows</span>
                 <span class="skill-tag">CI/CD</span>
             </div>
-
         </div>
 
-
         <div class="skill-card">
-
             <div class="skill-card-header">
                 <div class="skill-icon">📋</div>
                 <h3>Frameworks & Compliance</h3>
             </div>
-
             <div class="skill-tags">
                 <span class="skill-tag purple">NIST 800-53</span>
                 <span class="skill-tag purple">NIST CSF</span>
@@ -1432,17 +1306,13 @@
                 <span class="skill-tag purple">GDPR</span>
                 <span class="skill-tag purple">SOC 2</span>
             </div>
-
         </div>
 
-
         <div class="skill-card">
-
             <div class="skill-card-header">
                 <div class="skill-icon">🔬</div>
                 <h3>Forensics & Analysis</h3>
             </div>
-
             <div class="skill-tags">
                 <span class="skill-tag">Volatility 3</span>
                 <span class="skill-tag">Any.run</span>
@@ -1452,49 +1322,96 @@
                 <span class="skill-tag">PCAP Analysis</span>
                 <span class="skill-tag">IOC Research</span>
             </div>
-
         </div>
 
     </div>
-
 </section>
 
 
 <!-- PROJECTS -->
 
 <section class="section" id="projects">
-
-    <div class="section-label">
-        // 03. projects
-    </div>
-
-    <h2 class="section-title">
-        Security <span>Projects</span>
-    </h2>
-
-    <p class="section-sub">
-        Hands-on work across offensive, defensive, compliance, and security tooling
-    </p>
+    <div class="section-label">// 03. projects</div>
+    <h2 class="section-title">Security <span>Projects</span></h2>
+    <p class="section-sub">Hands-on work across offensive, defensive, compliance, and security tooling</p>
 
     <div class="projects-grid">
 
-
-        <div class="project-card">
+        <!-- ── FEATURED: docker-misconfig-scanner ── -->
+        <div class="project-card featured">
 
             <div class="project-top">
-
-                <h3>
-                    EPAC — Endpoint Security Compliance Automation Framework
-                </h3>
-
-                <span class="project-badge badge-capstone">
-                    Capstone
-                </span>
-
+                <div>
+                    <span class="project-badge badge-opensource" style="margin-bottom:0.75rem;display:inline-block;">
+                        Open Source
+                    </span>
+                    <h3 style="font-size:1.2rem;">🐳 docker-misconfig-scanner</h3>
+                </div>
+                <div class="featured-links">
+                    <a
+                        class="featured-link featured-link-primary"
+                        href="https://kushardogra.github.io/docker-misconfig-scanner"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🌐 Live Tool
+                    </a>
+                    <a
+                        class="featured-link featured-link-secondary"
+                        href="https://github.com/kushardogra/docker-misconfig-scanner"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub ↗
+                    </a>
+                    <a
+                        class="featured-link featured-link-secondary"
+                        href="https://github.com/kushardogra/docker-misconfig-scanner/releases/tag/v0.1.0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🏷️ v0.1.0
+                    </a>
+                </div>
             </div>
 
             <div class="project-body">
+                <p>
+                    A static analysis CLI tool written in Go that detects security misconfigurations
+                    in Dockerfiles and docker-compose files before they reach production. Built from a
+                    real-world ransomware incident where Docker silently bypassed UFW firewall rules via
+                    the DOCKER iptables chain — a default behavior, not a bug, that most teams miss.
+                    The tool's detection logic underpins an ongoing empirical study of misconfiguration
+                    prevalence across public GitHub repositories.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric"><span>6</span> Detection Rules</div>
+                    <div class="metric"><span>v0.1.0</span> Released</div>
+                    <div class="metric"><span>MIT</span> License</div>
+                    <div class="metric"><span>Public</span> GitHub</div>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">Go</span>
+                    <span class="tech-tag">Cobra</span>
+                    <span class="tech-tag">YAML</span>
+                    <span class="tech-tag">Static Analysis</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">iptables</span>
+                    <span class="tech-tag">DevSecOps</span>
+                    <span class="tech-tag">CLI</span>
+                </div>
+            </div>
 
+        </div>
+        <!-- ── END FEATURED ── -->
+
+
+        <div class="project-card">
+            <div class="project-top">
+                <h3>EPAC — Endpoint Security Compliance Automation Framework</h3>
+                <span class="project-badge badge-capstone">Capstone</span>
+            </div>
+            <div class="project-body">
                 <p>
                     Built a security automation framework for Cors Lab
                     Technology's Sentrinus EDR platform. Automated security
@@ -1502,23 +1419,11 @@
                     audit logging, encryption, account lockout, and access
                     controls, mapped to NIST 800-53, HIPAA, and CIS Benchmarks.
                 </p>
-
                 <div class="project-metrics">
-
-                    <div class="metric">
-                        <span>21</span> Controls
-                    </div>
-
-                    <div class="metric">
-                        <span>Windows</span> Endpoint
-                    </div>
-
-                    <div class="metric">
-                        <span>3</span> Frameworks
-                    </div>
-
+                    <div class="metric"><span>21</span> Controls</div>
+                    <div class="metric"><span>Windows</span> Endpoint</div>
+                    <div class="metric"><span>3</span> Frameworks</div>
                 </div>
-
                 <div class="project-tech">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">PowerShell</span>
@@ -1529,35 +1434,21 @@
                     <span class="tech-tag">CIS Benchmarks</span>
                     <span class="tech-tag">SSE Streaming</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    Full Penetration Testing Engagement
-                </h3>
-
-                <span class="project-badge badge-offensive">
-                    Offensive
-                </span>
-
+                <h3>Full Penetration Testing Engagement</h3>
+                <span class="project-badge badge-offensive">Offensive</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Executed a complete penetration testing workflow against an
                     Ubuntu environment including reconnaissance, scanning,
                     exploitation, post-exploitation, and cleanup. Documented
                     findings and mapped attack activity to MITRE ATT&CK.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">Metasploit</span>
                     <span class="tech-tag">Nmap</span>
@@ -1565,35 +1456,21 @@
                     <span class="tech-tag">John the Ripper</span>
                     <span class="tech-tag">MITRE ATT&CK</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    Snort IDS/IPS Threat Detection & Incident Response Lab
-                </h3>
-
-                <span class="project-badge badge-defensive">
-                    Defensive
-                </span>
-
+                <h3>Snort IDS/IPS Threat Detection & Incident Response Lab</h3>
+                <span class="project-badge badge-defensive">Defensive</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Deployed Snort with custom detection rules targeting
                     CVE-based attacks, SQL injection, and data exfiltration.
                     Analyzed network traffic and PCAPs to identify suspicious
                     behavior and extract indicators of compromise.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">Snort</span>
                     <span class="tech-tag">Splunk</span>
@@ -1602,105 +1479,63 @@
                     <span class="tech-tag">ntopng</span>
                     <span class="tech-tag">IPFire</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    Web Application Security Testing
-                </h3>
-
-                <span class="project-badge badge-offensive">
-                    Offensive
-                </span>
-
+                <h3>Web Application Security Testing</h3>
+                <span class="project-badge badge-offensive">Offensive</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Performed manual and automated web application testing
                     covering SQL injection, command injection, authentication
                     weaknesses, HTTPS interception, and remediation aligned with
                     OWASP guidance.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">Burp Suite</span>
                     <span class="tech-tag">SQLMap</span>
                     <span class="tech-tag">OWASP</span>
                     <span class="tech-tag">HTTPS</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    OSINT & Threat Intelligence Research
-                </h3>
-
-                <span class="project-badge badge-offensive">
-                    Recon
-                </span>
-
+                <h3>OSINT & Threat Intelligence Research</h3>
+                <span class="project-badge badge-offensive">Recon</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Conducted passive intelligence gathering using SpiderFoot,
                     Shodan, Censys, and Amass to identify exposed infrastructure,
                     public attack surface, subdomains, and potentially
                     misconfigured systems.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">SpiderFoot</span>
                     <span class="tech-tag">Shodan</span>
                     <span class="tech-tag">Censys</span>
                     <span class="tech-tag">Amass</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    Security Architecture & Network Design
-                </h3>
-
-                <span class="project-badge badge-infra">
-                    Architecture
-                </span>
-
+                <h3>Security Architecture & Network Design</h3>
+                <span class="project-badge badge-infra">Architecture</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Designed an enterprise security architecture incorporating
                     network segmentation, SIEM, DLP, WAF, access controls, and
                     threat modeling. Mapped security controls to NIST CSF and
                     MITRE ATT&CK.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">Splunk</span>
                     <span class="tech-tag">DLP</span>
@@ -1708,35 +1543,21 @@
                     <span class="tech-tag">NIST CSF</span>
                     <span class="tech-tag">MITRE ATT&CK</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    Binary Exploitation & Buffer Overflow Research
-                </h3>
-
-                <span class="project-badge badge-offensive">
-                    Offensive
-                </span>
-
+                <h3>Binary Exploitation & Buffer Overflow Research</h3>
+                <span class="project-badge badge-offensive">Offensive</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Developed proof-of-concept exploits for stack-based buffer
                     overflows using shellcode injection, ret2libc, and stack
                     canary bypass techniques. Reverse-engineered binaries using
                     Ghidra, GDB, objdump, and pwntools.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">GDB</span>
                     <span class="tech-tag">pwntools</span>
@@ -1744,35 +1565,21 @@
                     <span class="tech-tag">objdump</span>
                     <span class="tech-tag">ret2libc</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    Security Risk Management Assessment
-                </h3>
-
-                <span class="project-badge badge-infra">
-                    GRC
-                </span>
-
+                <h3>Security Risk Management Assessment</h3>
+                <span class="project-badge badge-infra">GRC</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Conducted structured security risk assessments including
                     asset classification, risk quantification, control mapping,
                     and compliance gap analysis across NIST 800-53, SOC 2,
                     HIPAA, PCI-DSS, and GDPR.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">NIST 800-53</span>
                     <span class="tech-tag">HIPAA</span>
@@ -1781,340 +1588,152 @@
                     <span class="tech-tag">SOC 2</span>
                     <span class="tech-tag">FIPS 199</span>
                 </div>
-
             </div>
-
         </div>
 
-
         <div class="project-card">
-
             <div class="project-top">
-
-                <h3>
-                    Password Strength Checker
-                </h3>
-
-                <span class="project-badge badge-tool">
-                    Tool
-                </span>
-
+                <h3>Password Strength Checker</h3>
+                <span class="project-badge badge-tool">Tool</span>
             </div>
-
             <div class="project-body">
-
                 <p>
                     Full-stack security tool evaluating password strength,
                     checking passwords against common dictionaries, and
                     performing HaveIBeenPwned breach lookups using k-anonymity
                     to protect user privacy.
                 </p>
-
                 <div class="project-tech">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">Flask</span>
                     <span class="tech-tag">JavaScript</span>
                     <span class="tech-tag">HIBP API</span>
                 </div>
-
                 <div style="margin-top:1rem;">
-
                     <a
                         href="https://github.com/kushardogra/Password-Strength-Checker"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style="
-                            color:var(--accent-cyan);
-                            font-size:0.8rem;
-                            text-decoration:none;
-                            font-family:'JetBrains Mono', monospace;
-                        "
+                        style="color:var(--accent-cyan);font-size:0.8rem;text-decoration:none;font-family:'JetBrains Mono',monospace;"
                     >
                         View on GitHub
                     </a>
-
                 </div>
-
             </div>
-
         </div>
 
     </div>
-
 </section>
 
 
 <!-- EXPERIENCE -->
 
 <section class="section" id="experience">
-
-    <div class="section-label">
-        // 04. experience
-    </div>
-
-    <h2 class="section-title">
-        Work <span>Experience</span>
-    </h2>
-
-    <p class="section-sub">
-        Professional background in security-focused software engineering
-    </p>
-
+    <div class="section-label">// 04. experience</div>
+    <h2 class="section-title">Work <span>Experience</span></h2>
+    <p class="section-sub">Professional background in security-focused software engineering</p>
     <div class="exp-card">
-
         <div class="exp-header">
-
-            <h3>
-                Application Security-Focused Full Stack Developer
-            </h3>
-
-            <span class="exp-date">
-                Aug 2023 – Aug 2024
-            </span>
-
+            <h3>Application Security-Focused Full Stack Developer</h3>
+            <span class="exp-date">Aug 2023 – Aug 2024</span>
         </div>
-
-        <p class="exp-company">
-            Quindl Technologies · Coimbatore, India
-        </p>
-
+        <p class="exp-company">Quindl Technologies · Coimbatore, India</p>
         <ul class="exp-bullets">
-
             <li>
                 Built 4 production web applications including e-commerce,
                 booking systems, and administrative dashboards using Python,
                 Django, JavaScript, SQL, and related web technologies.
             </li>
-
             <li>
                 Applied secure-by-design practices including CSRF protection,
                 input validation, secure session handling, XSS mitigation, and
                 HTTPS enforcement.
             </li>
-
             <li>
                 Designed database schemas with role-based access controls and
                 privilege separation across user and administrative functions.
             </li>
-
             <li>
                 Participated in security-focused code reviews across a
                 15–20 developer team to identify misconfigurations and improve
                 secure coding practices before deployment.
             </li>
-
         </ul>
-
     </div>
-
 </section>
 
 
 <!-- EDUCATION + CERTIFICATIONS -->
 
 <section class="section" id="education">
-
-    <div class="section-label">
-        // 05. education & certifications
-    </div>
-
-    <h2 class="section-title">
-        Education & <span>Certifications</span>
-    </h2>
-
-    <p class="section-sub">
-        Academic background, professional certification, and hands-on security development
-    </p>
+    <div class="section-label">// 05. education & certifications</div>
+    <h2 class="section-title">Education & <span>Certifications</span></h2>
+    <p class="section-sub">Academic background, professional certification, and hands-on security development</p>
 
     <div class="edu-grid">
-
         <div class="edu-card">
-
-            <h3>
-                Master of Science in Cybersecurity
-            </h3>
-
-            <h4>
-                Northeastern University
-            </h4>
-
-            <p>
-                Khoury College of Computer Sciences
-            </p>
-
-            <p>
-                Boston, MA · Sep 2024 – May 2026
-            </p>
-
+            <h3>Master of Science in Cybersecurity</h3>
+            <h4>Northeastern University</h4>
+            <p>Khoury College of Computer Sciences</p>
+            <p>Boston, MA · Sep 2024 – May 2026</p>
         </div>
-
-
         <div class="edu-card">
-
-            <h3>
-                Bachelor of Technology in Information Technology
-            </h3>
-
-            <h4>
-                Kumaraguru College of Technology
-            </h4>
-
-            <p>
-                Coimbatore, India
-            </p>
-
-            <p>
-                Aug 2020 – May 2024
-            </p>
-
+            <h3>Bachelor of Technology in Information Technology</h3>
+            <h4>Kumaraguru College of Technology</h4>
+            <p>Coimbatore, India</p>
+            <p>Aug 2020 – May 2024</p>
         </div>
-
     </div>
-
-
-    <!-- FEATURED SECURITY+ CERTIFICATION -->
 
     <div class="securityplus-card">
-
-        <img
-            src="./comptia-security-ce-certification.png"
-            alt="CompTIA Security+ Certification Badge"
-            class="securityplus-badge"
-        >
-
+        <img src="./comptia-security-ce-certification.png" alt="CompTIA Security+ Certification Badge" class="securityplus-badge">
         <div class="securityplus-info">
-
-            <div class="securityplus-label">
-                PROFESSIONAL CERTIFICATION
-            </div>
-
-            <h3>
-                CompTIA Security+
-            </h3>
-
-            <p>
-                Certified · August 2026
-            </p>
-
+            <div class="securityplus-label">PROFESSIONAL CERTIFICATION</div>
+            <h3>CompTIA Security+</h3>
+            <p>Certified · August 2026</p>
         </div>
-
     </div>
-
-
-    <!-- CURRENT DEVELOPMENT -->
 
     <div class="cert-row">
-
-        <div class="cert-pill">
-            <span class="dot dot-blue"></span>
-            TryHackMe SOC Level 1 — In Progress
-        </div>
-
-        <div class="cert-pill">
-            <span class="dot dot-green"></span>
-            TryHackMe DFIR Path — In Progress
-        </div>
-
-        <div class="cert-pill">
-            <span class="dot dot-orange"></span>
-            HackerOne Bug Bounty — Active
-        </div>
-
+        <div class="cert-pill"><span class="dot dot-blue"></span>TryHackMe SOC Level 1 — In Progress</div>
+        <div class="cert-pill"><span class="dot dot-green"></span>TryHackMe DFIR Path — In Progress</div>
+        <div class="cert-pill"><span class="dot dot-orange"></span>HackerOne Bug Bounty — Active</div>
     </div>
-
-
-    <!-- TRYHACKME PROFILE -->
 
     <div class="thm-wrapper">
-
         <div class="thm-card">
-
-            <h3>
-                TryHackMe <span>Profile</span>
-            </h3>
-
-            <p>
-                Ongoing hands-on training in SOC and DFIR labs
-            </p>
-
-            <iframe
-                src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=659226"
-                title="TryHackMe Profile Badge"
-            ></iframe>
-
+            <h3>TryHackMe <span>Profile</span></h3>
+            <p>Ongoing hands-on training in SOC and DFIR labs</p>
+            <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=659226" title="TryHackMe Profile Badge"></iframe>
         </div>
-
     </div>
-
 </section>
 
 
 <!-- CONTACT -->
 
 <section class="section" id="contact">
-
-    <div class="section-label">
-        // 06. contact
-    </div>
-
-    <h2 class="section-title">
-        Get in <span>Touch</span>
-    </h2>
-
+    <div class="section-label">// 06. contact</div>
+    <h2 class="section-title">Get in <span>Touch</span></h2>
     <div class="contact-center">
-
         <p>
             I'm currently exploring full-time cybersecurity opportunities
             across SOC, GRC, vulnerability management, application security,
             and detection engineering. Feel free to reach out.
         </p>
-
         <div class="contact-links">
-
-            <a
-                href="mailto:kushardogra@outlook.com"
-                class="contact-link"
-            >
-                📧 kushardogra@outlook.com
-            </a>
-
-            <a
-                href="https://linkedin.com/in/kushar-dogra"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-            >
-                💼 LinkedIn
-            </a>
-
-            <a
-                href="https://github.com/kushardogra"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-            >
-                📂 GitHub
-            </a>
-
+            <a href="mailto:kushardogra@outlook.com" class="contact-link">📧 kushardogra@outlook.com</a>
+            <a href="https://linkedin.com/in/kushar-dogra" target="_blank" rel="noopener noreferrer" class="contact-link">💼 LinkedIn</a>
+            <a href="https://github.com/kushardogra" target="_blank" rel="noopener noreferrer" class="contact-link">📂 GitHub</a>
         </div>
-
     </div>
-
 </section>
 
 
 <!-- FOOTER -->
 
 <footer>
-
-    <p>
-        Designed & Built by
-        <span>Kushar Dogra</span>
-        · M.S. Cybersecurity
-        · CompTIA Security+
-        · © 2026
-    </p>
-
+    <p>Designed & Built by <span>Kushar Dogra</span> · M.S. Cybersecurity · CompTIA Security+ · © 2026</p>
 </footer>
 
 
@@ -2122,145 +1741,68 @@
 
     /* CONTACT MODAL */
 
-    const contactModal =
-        document.getElementById('contactModal');
+    const contactModal = document.getElementById('contactModal');
 
     const openModal = (event) => {
-
         event.preventDefault();
-
         contactModal.classList.add('active');
-
         document.body.style.overflow = 'hidden';
-
     };
 
     const closeModal = () => {
-
         contactModal.classList.remove('active');
-
         document.body.style.overflow = '';
-
     };
 
-
-    document
-        .getElementById('contactBtn')
-        .addEventListener('click', openModal);
-
-
-    document
-        .querySelector('.nav-contact-btn')
-        .addEventListener('click', openModal);
-
-
-    document
-        .getElementById('modalClose')
-        .addEventListener('click', closeModal);
-
+    document.getElementById('contactBtn').addEventListener('click', openModal);
+    document.querySelector('.nav-contact-btn').addEventListener('click', openModal);
+    document.getElementById('modalClose').addEventListener('click', closeModal);
 
     contactModal.addEventListener('click', (event) => {
-
-        if (event.target === contactModal) {
-            closeModal();
-        }
-
+        if (event.target === contactModal) closeModal();
     });
 
-
     document.addEventListener('keydown', (event) => {
-
-        if (event.key === 'Escape') {
-            closeModal();
-        }
-
+        if (event.key === 'Escape') closeModal();
     });
 
 
     /* SCROLL REVEAL */
 
     const observer = new IntersectionObserver(
-
         (entries) => {
-
             entries.forEach((entry) => {
-
                 if (entry.isIntersecting) {
-
                     entry.target.style.opacity = '1';
-
-                    entry.target.style.transform =
-                        'translateY(0)';
-
+                    entry.target.style.transform = 'translateY(0)';
                 }
-
             });
-
         },
-
-        {
-            threshold: 0.08
-        }
-
+        { threshold: 0.08 }
     );
 
-
-    document
-        .querySelectorAll('.section')
-        .forEach((section) => {
-
-            section.style.opacity = '0';
-
-            section.style.transform =
-                'translateY(24px)';
-
-            section.style.transition =
-                'opacity 0.55s ease, transform 0.55s ease';
-
-            observer.observe(section);
-
-        });
+    document.querySelectorAll('.section').forEach((section) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(24px)';
+        section.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        observer.observe(section);
+    });
 
 
     /* ACTIVE NAV */
 
-    const sections =
-        document.querySelectorAll('section[id]');
-
+    const sections = document.querySelectorAll('section[id]');
 
     window.addEventListener('scroll', () => {
-
         let current = '';
-
         sections.forEach((section) => {
-
-            if (
-                window.scrollY >=
-                section.offsetTop - 120
-            ) {
-
-                current =
-                    section.getAttribute('id');
-
+            if (window.scrollY >= section.offsetTop - 120) {
+                current = section.getAttribute('id');
             }
-
         });
-
-
-        document
-            .querySelectorAll('.nav-links a')
-            .forEach((link) => {
-
-                link.style.color =
-                    link.getAttribute('href') ===
-                    `#${current}`
-
-                    ? 'var(--accent-cyan)'
-
-                    : '';
-
-            });
-
+        document.querySelectorAll('.nav-links a').forEach((link) => {
+            link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--accent-cyan)' : '';
+        });
     });
 
 </script>
